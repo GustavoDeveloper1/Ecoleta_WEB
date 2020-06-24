@@ -1,0 +1,28 @@
+/*raiz em formatos de variaveis*/:root{
+    --title-color: #322153;
+    --primary-color: #45f092;    
+    --fil-color:  #f0f0f5;
+}
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+body{
+    background-color: #f0f0f5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a{
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--title-color);
+}
+/*box model = cada um dos elementos, recebem o padrão de uma caixa*/
+
+/*Mexendo no index*/

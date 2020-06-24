@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% set bodyId = "page-search-results" %}
+{% block title %}
+    <title>Resultado na pesquisa</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="styles/search.css">
+{% endblock styles %}
+
+{% block content %}
+    <header >
+        <img src="/icones/logo.svg" alt="logomarca">
+        <a href="/">
+            <span></span>
+            Voltar para Home</a>
+    </header>
+    <main>
+
+        <h3>
+            <b>2 pontos
+            </b>
+            encontrados
+        </h3>
+
+        <div class="cards">
+            <div class="card">
+                <img src="https://www.cbsaparasdepapel.com.br/imagens/informacoes/reciclagem-papelao-03.jpg" alt="Colectoria">
+                <h1>Colectoria</h1>
+                <h3>Residuos Eletronicos, Lâmpadas</h3>
+                <p>
+                    Rio do Sul, Santa Catarina
+                    <br>
+                    Guilherme Gemballa, Jardmin América
+                    <br>
+                    Numero 260
+                </p>
+            </div>
+            <div class="card">
+                <img src="https://www.fragmaq.com.br/wp-content/uploads/2015/05/1-lixo-eletronico.jpg" alt="Colectoria">
+                <h1>Papersider</h1>
+                <h3>Papéis e Papelão</h3>
+                <p>
+                    Rio do Sul, Santa Catarina
+                    <br>
+                    Guilherme Gemballa, Jardmin América
+                    <br>
+                    Numero 260
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+{% endblock content %}
