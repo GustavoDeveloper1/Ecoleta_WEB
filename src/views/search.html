@@ -1,56 +1,55 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultado da Pesquisa</title>
 
-{% set bodyId = "page-search-results" %}
-{% block title %}
-    <title>Resultado na pesquisa</title>
-{% endblock title %}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/search-results.css" />
 
-{% block styles %}
-    <link rel="stylesheet" href="styles/search.css">
-{% endblock styles %}
+    <link rel="stylesheet" href="styles/responsive.css" />
+  </head>
 
-{% block content %}
-    <header >
-        <img src="/icones/logo.svg" alt="logomarca">
+  <body>
+    <div id="page-search-results">
+      <header>
+        <img src="/icones/Scoleta-logo.png" alt="logomarca" >
         <a href="/">
-            <span></span>
-            Voltar para Home</a>
-    </header>
-    <main>
+          <span></span>
+          Voltar para home
+        </a>
+      </header>
 
-        <h3>
-            <b>2 pontos
-            </b>
-            encontrados
-        </h3>
-
+      <main>
+        {% if total > 0 %}
+        <h4><strong>{{total}} pontos</strong> encontrados</h4>
         <div class="cards">
-            <div class="card">
-                <img src="https://www.cbsaparasdepapel.com.br/imagens/informacoes/reciclagem-papelao-03.jpg" alt="Colectoria">
-                <h1>Colectoria</h1>
-                <h3>Residuos Eletronicos, Lâmpadas</h3>
-                <p>
-                    Rio do Sul, Santa Catarina
-                    <br>
-                    Guilherme Gemballa, Jardmin América
-                    <br>
-                    Numero 260
-                </p>
-            </div>
-            <div class="card">
-                <img src="https://www.fragmaq.com.br/wp-content/uploads/2015/05/1-lixo-eletronico.jpg" alt="Colectoria">
-                <h1>Papersider</h1>
-                <h3>Papéis e Papelão</h3>
-                <p>
-                    Rio do Sul, Santa Catarina
-                    <br>
-                    Guilherme Gemballa, Jardmin América
-                    <br>
-                    Numero 260
-                </p>
-            </div>
+          {% for place in places %}
+          <div class="card">
+            {% if place.image %}
+            <img src="{{ place.image }}" alt="{{ place.name }}" />
+            {% else %}
+            <img src="assets/icones/no-image.png" alt="Não possui imagem" />
+            {% endif %}
+            <h1>{{ place.bane }}</h1>
+            <h3>{{ place.items }}</h3>
+            <p>
+              {{ place.city }}, {{ place.state }}<br />
+              {{ place.address }}<br />
+              {{ place.address2 }}
+            </p>
+          </div>
+          {% endfor %}
         </div>
-
-    </main>
-
-{% endblock content %}
+        {% else %}
+        <h4><strong>Nenhum local encontrado</strong></h4>
+        {% endif %}
+      </main>
+    </div>
+  </body>
+</html>
